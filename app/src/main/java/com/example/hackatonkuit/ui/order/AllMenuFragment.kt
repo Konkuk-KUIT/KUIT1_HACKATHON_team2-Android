@@ -1,12 +1,10 @@
 package com.example.hackatonkuit.ui.order
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hackatonkuit.R
@@ -36,27 +34,33 @@ class AllMenuFragment : Fragment() {
         val retrofitInterface = getRetrofitInterface()
         retrofitInterface.requestCategories().enqueue(object :
             Callback<List<Category>> {
-            override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
+            override fun onResponse(
+                call: Call<List<Category>>,
+                response: Response<List<Category>>
+            ) {
                 Log.d("qwerty123", response.body().toString())
                 if (response.isSuccessful) {
+                    orderList.clear()
                     response.body()!!.forEach {
-                        orderList.add(AllmenuInfo(it.image, it.name, it.eng_name))
+                        orderList.add(AllmenuInfo(it.id, it.image, it.name, it.eng_name))
                     }
                     binding.allmenuRv.adapter?.notifyDataSetChanged()
                 } else {
 
                 }
             }
+
             override fun onFailure(call: Call<List<Category>>, t: Throwable) {
                 Log.d("hello", t.message.toString())
             }
         })
         adapter = AllmenuAdapter(orderList)
-//        adapter.onItemClickListener = object: AllmenuAdapter.OnItemClickListener{
-//            override fun onItemClicked(position: Int) {
-//                parentFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.main_frm, MenuListFragment()).commit()
-//            }
-//        }
+        adapter.onItemClickListener = object : AllmenuAdapter.OnItemClickListener {
+            override fun onItemClicked(position: Int) {
+                requireActivity().supportFragmentManager.beginTransaction().addToBackStack(null)
+                    .replace(R.id.main_frm, MenuListFragment()).commit()
+            }
+        }
         binding.allmenuRv.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.allmenuRv.adapter = adapter
