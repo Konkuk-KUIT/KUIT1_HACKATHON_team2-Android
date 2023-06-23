@@ -7,7 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-val BASE_URL = "https://127.0.0.1"
+val BASE_URL = "https://dc57-210-106-232-36.ngrok-free.app/"
 
 fun getRetrofitInterface(): RetrofitInterface {
     val gson: Gson = GsonBuilder()
