@@ -29,7 +29,7 @@
         <ImageView
             android:id="@+id/search_iv"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="right"
             android:layout_margin="10dp"
             android:src="@drawable/baseline_search_24"
@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 app:tabGravity="center"
                 app:tabMode="fixed"
+                app:tabTextAppearance="@style/tab_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +75,7 @@
                     android:layout_height="wrap_content"
                     app:tabMode="fixed"
                     android:text="음료"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="50dp"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -85,7 +86,7 @@
                     android:layout_height="wrap_content"
                     app:tabMode="fixed"
                     android:text="음식"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="50dp"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     app:layout_constraintStart_toEndOf="@id/menu_tv2" />
@@ -96,7 +97,7 @@
                     android:layout_height="wrap_content"
                     app:tabMode="fixed"
                     android:text="식품"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="50dp"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     app:layout_constraintStart_toEndOf="@id/menu_tv3" />
