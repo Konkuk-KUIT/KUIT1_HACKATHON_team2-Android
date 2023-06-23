@@ -6,14 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hackatonkuit.R
 import com.example.hackatonkuit.databinding.FragmentOrderedFoodBinding
-import com.example.hackatonkuit.ui.order.Menu
+import com.example.hackatonkuit.ui.order.MenuForAdapter
 
 class OrderedFoodFragment : Fragment() {
     lateinit var binding : FragmentOrderedFoodBinding
     lateinit var adapter : OrderedFoodAdapter
-    lateinit var menuList : ArrayList<Menu>
+    lateinit var menuList : ArrayList<MenuForAdapter>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +31,6 @@ class OrderedFoodFragment : Fragment() {
     }
 
     fun initData(){
-        menuList = arrayListOf(Menu("민트 콜드 브루"), Menu("콜드 브루"))
+        menuList = arrayListOf(MenuForAdapter(0L, "", "민트 초코 라뗴", "", 0, ""), MenuForAdapter(0L, "", "민트 초코 라뗴", "", 0, ""))
     }
 }

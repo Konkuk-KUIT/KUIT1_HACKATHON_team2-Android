@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hackatonkuit.databinding.ItemHomeBinding
 import com.example.hackatonkuit.ui.home.Home
-import com.example.hackatonkuit.ui.order.Menu
 
 class OtherMenuAdapter(var items: ArrayList<Home>) : RecyclerView.Adapter<OtherMenuAdapter.ViewHolder>(){
 

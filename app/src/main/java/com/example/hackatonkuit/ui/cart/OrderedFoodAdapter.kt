@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hackatonkuit.databinding.ItemCartOrderedMenuBinding
-import com.example.hackatonkuit.ui.order.Menu
+import com.example.hackatonkuit.ui.order.MenuForAdapter
 
-class OrderedFoodAdapter(var items: ArrayList<Menu>) : RecyclerView.Adapter<OrderedFoodAdapter.ViewHolder>(){
+class OrderedFoodAdapter(var items: ArrayList<MenuForAdapter>) : RecyclerView.Adapter<OrderedFoodAdapter.ViewHolder>(){
 
     inner class ViewHolder(val binding : ItemCartOrderedMenuBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){

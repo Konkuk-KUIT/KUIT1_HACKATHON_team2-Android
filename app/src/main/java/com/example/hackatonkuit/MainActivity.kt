@@ -11,6 +11,7 @@ import com.example.hackatonkuit.ui.menudetail.MenuDetailActivity
 import com.example.hackatonkuit.ui.order.OrderFragment
 import com.example.hackatonkuit.ui.other.OtherFragment
 import com.example.hackatonkuit.ui.pay.PayFragment
+import com.example.hackatonkuit.ui.shop.ShopFragment
 import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
@@ -46,13 +47,13 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             }
 
             R.id.navigation_shop -> {
-                val i = Intent(this, CartActivity::class.java)
-                startActivity(i)
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, ShopFragment())
+                    .commit()
             }
 
             R.id.navigation_other -> {
-                val i = Intent(this, MenuDetailActivity::class.java)
-                startActivity(i)
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, OtherFragment())
+                    .commit()
             }
         }
         return true
