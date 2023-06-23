@@ -3,8 +3,12 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     buildFeatures{
+        buildConfig = true
         viewBinding true
     }
     namespace 'com.example.hackatonkuit'
@@ -16,8 +20,9 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", properties['BASE_URL']
     }
 
     buildTypes {
@@ -32,9 +37,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-    buildFeatures {
-        viewBinding true
     }
 }
 

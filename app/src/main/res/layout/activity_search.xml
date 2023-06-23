@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="20dp"
-    tools:context=".ui.order.SearchFragment">
+    tools:context=".ui.order.SearchActivity">
 
     <FrameLayout
         android:id="@+id/search_fl"
