@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hackatonkuit.databinding.FragmentHomeBinding
 import com.example.hackatonkuit.retrofit2.NewMenu
-import com.example.hackatonkuit.retrofit2.getRetrofitInterface2
+import com.example.hackatonkuit.retrofit2.getRetrofitInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
 
     lateinit var binding : FragmentHomeBinding
     lateinit var adapter: HomeAdapter
-    lateinit var menuList: ArrayList<HomeInfo>
+    var menuList = ArrayList<HomeInfo>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,9 +37,9 @@ class HomeFragment : Fragment() {
 
     fun initLayout(){
 
-        val retrofitInterface2 = getRetrofitInterface2()
+        val retrofitInterface2 = getRetrofitInterface()
 
-        retrofitInterface2.requestMenus("asd").enqueue(object :
+        retrofitInterface2.requestMenus("new").enqueue(object :
             Callback<List<NewMenu>> {
             override fun onResponse(
                 call: Call<List<NewMenu>>,
@@ -48,11 +48,8 @@ class HomeFragment : Fragment() {
                 Log.d("123", response.body().toString())
                 if (response.isSuccessful) {
                     menuList.clear()
-                    response.body()?.let{ newMenus ->
-                        for(it in newMenus){
-                            menuList.add(HomeInfo(it.menuId, it.image, it.name))
-                        }
-
+                    response.body()!!.forEach{
+                        menuList.add(HomeInfo(it.menuId, it.image, it.name))
                     }
                     binding.homeNewMenuList.adapter?.notifyDataSetChanged()
                 } else {
