@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HackatonKUIT</string>
+    <string name="title_home">Home</string>
+    <string name="title_Pay">Pay</string>
+    <string name="title_Order">Order</string>
+    <string name="title_Shop">Shop</string>
+    <string name="title_Other">Other</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
