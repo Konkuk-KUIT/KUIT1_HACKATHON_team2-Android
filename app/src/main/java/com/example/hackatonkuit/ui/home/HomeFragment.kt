@@ -5,16 +5,9 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.view.menu.MenuAdapter
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.hackatonkuit.R
 import com.example.hackatonkuit.databinding.FragmentHomeBinding
-import com.example.hackatonkuit.ui.order.Menu
-import com.example.hackatonkuit.ui.order.MenuListAdapter
 
 class HomeFragment : Fragment() {
 
@@ -40,13 +33,13 @@ class HomeFragment : Fragment() {
     }
 
     fun initData(){
-        menuList = arrayListOf(Menu("아메리카노"), Menu("카페라떼"))
+        //menuList = arrayListOf(MenuItem("아메리카노"), MenuItem("카페라떼"))
     }
 
     fun initLayout(){
-        adapter = MenuAdapter(menuList)
-        binding.homeNewMenuList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.homeNewMenuList.adapter = adapter
+        //adapter = MenuAdapter(menuList)
+        //binding.homeNewMenuList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        //binding.homeNewMenuList.adapter = adapter
     }
 
 

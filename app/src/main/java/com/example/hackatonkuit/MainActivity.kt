@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hackatonkuit.databinding.ActivityMainBinding
 import com.example.hackatonkuit.ui.home.HomeFragment
+import com.example.hackatonkuit.ui.menudetail.MenuDetailActivity
 import com.example.hackatonkuit.ui.order.OrderFragment
 import com.example.hackatonkuit.ui.other.OtherFragment
 import com.example.hackatonkuit.ui.pay.PayFragment
@@ -50,8 +51,8 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             }
 
             R.id.navigation_other -> {
-                supportFragmentManager.beginTransaction().replace(R.id.main_frm, OtherFragment())
-                    .commit()
+                val i = Intent(this, MenuDetailActivity::class.java)
+                startActivity(i)
             }
         }
         return true

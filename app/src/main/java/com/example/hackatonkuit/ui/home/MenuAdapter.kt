@@ -10,7 +10,7 @@ class MenuAdapter(var items: ArrayList<MenuItem>): RecyclerView.Adapter<MenuAdap
 
     inner class MyViewHolder(val binding: FragmentHomeBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
-            binding.homeNewName.text = items[position].
+            //binding.homeNewName.text = items[position].
             //binding.homeNewImage.id = HomeFragment.MenuItem.menuimage
         }
     }
