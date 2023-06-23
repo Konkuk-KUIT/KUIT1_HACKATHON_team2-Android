@@ -13,7 +13,7 @@ interface RetrofitInterface {
     @GET("/menus")
     fun requestMenus(
         @Query("menu-status") menustatus: String
-    ): Call<NewMenu>
+    ): Call<List<NewMenu>>
 
 
 

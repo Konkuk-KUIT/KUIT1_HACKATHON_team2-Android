@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
 
     lateinit var binding : FragmentHomeBinding
     lateinit var adapter: HomeAdapter
-    lateinit var menuList: ArrayList<Home>
+    lateinit var menuList: ArrayList<HomeInfo>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,40 +28,40 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         //initData()
         initLayout()
-
         return binding.root
-
     }
 
-    fun initData(){
+    /*fun initData(){
         menuList = arrayListOf(Home("아메리카노"), Home("카페라떼"), Home("아이스티"), Home("바닐라라떼"))
-    }
+    }*/
 
     fun initLayout(){
-        val retrofitInterface = getRetrofitInterface2()
+        val retrofitInterface2 = getRetrofitInterface2()
 
-        retrofitInterface.requestCategories().enqueue(object :
-            Callback<NewMenu> {
+        retrofitInterface2.requestMenus("asd").enqueue(object :
+            Callback<List<NewMenu>> {
             override fun onResponse(
-                call: Call<NewMenu>,
-                response: Response<NewMenu>
+                call: Call<List<NewMenu>>,
+                response: Response<List<NewMenu>>
             ) {
-                Log.d("qwerty123", response.body().toString())
+                Log.d("123", response.body().toString())
                 if (response.isSuccessful) {
-                    orderList.clear()
-                    response.body()!!.forEach {
-                        orderList.add(AllmenuInfo(it.id, it.image, it.name, it.eng_name))
+                    menuList.clear()
+                    response.body()?.let{newMenus ->
+                        for(it in newMenus){
+                            menuList.add(HomeInfo(it.menuId, it.image, it.name))
+                        }
+
                     }
-                    binding.allmenuRv.adapter?.notifyDataSetChanged()
+                    binding.homeNewMenuList.adapter?.notifyDataSetChanged()
                 } else {
 
                 }
             }
 
-            override fun onFailure(call: Call<NewMenu>, t: Throwable) {
+            override fun onFailure(call: Call<List<NewMenu>>, t: Throwable) {
                 Log.d("hello", t.message.toString())
             }
         })

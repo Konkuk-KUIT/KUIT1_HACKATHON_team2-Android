@@ -10,7 +10,7 @@ data class Category(
 )
 
 data class NewMenu(
-    @SerializedName("menuId") val id: Long,
+    @SerializedName("menuId") val menuId: Long,
     @SerializedName("image") val image: String,
     @SerializedName("name") val name: String
 )
