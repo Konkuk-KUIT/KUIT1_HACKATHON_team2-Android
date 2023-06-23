@@ -34,3 +34,22 @@ data class NewMenu(
     @SerializedName("image") val image: String,
     @SerializedName("name") val name: String
 )
+
+data class CartItem(
+    @SerializedName("id") val id: Long,
+    @SerializedName("temp") val temp: String,
+    @SerializedName("size") val size: String,
+    @SerializedName("cup") val cup: String,
+    @SerializedName("count") val count: Int,
+    @SerializedName("price") val price: Int,
+    @SerializedName("menuImage") val menuImage: String,
+    @SerializedName("menuName") val menuName: String,
+    @SerializedName("menuEngName") val menuEngName: String,
+    @SerializedName("menuPrice") val menuPrice: String,
+    @SerializedName("optionItemReadResponseDtos") val optionItemReadResponseDtos: List<Option>
+)
+
+data class Option(
+    @SerializedName("name") val name: String,
+    @SerializedName("price") val price: Int,
+)

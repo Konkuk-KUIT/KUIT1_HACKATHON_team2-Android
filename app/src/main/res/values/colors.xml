@@ -14,5 +14,6 @@
     <color name="divider_gray">#FFf7f7f7</color>
     <color name="option_brown">#FF7d634f</color>
     <color name="iced_blue">#FF0076fe</color>
+    <color name="hot_red">#FFcb4337</color>
 
 </resources>

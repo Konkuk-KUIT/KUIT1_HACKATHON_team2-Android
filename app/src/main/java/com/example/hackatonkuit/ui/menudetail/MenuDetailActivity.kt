@@ -1,5 +1,6 @@
 package com.example.hackatonkuit.ui.menudetail
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import androidx.core.view.marginLeft
 import androidx.core.view.marginStart
 import androidx.core.view.marginTop
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hackatonkuit.R
 import com.example.hackatonkuit.databinding.ActivityMenuDetailBinding
 import com.example.hackatonkuit.retrofit2.Menu
 import com.example.hackatonkuit.retrofit2.MenuPreview
@@ -48,6 +50,20 @@ class MenuDetailActivity : AppCompatActivity() {
         binding.rvMenuDetailOtherMenu.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvMenuDetailOtherMenu.adapter = adapter
+
+        binding.rbHot.setOnCheckedChangeListener { compoundButton, b ->
+            if(b)
+                binding.rbHot.setTextColor(getColor(R.color.white))
+            else
+                binding.rbHot.setTextColor(getColor(R.color.black))
+        }
+
+        binding.rbIced.setOnCheckedChangeListener { compoundButton, b ->
+            if(b)
+                binding.rbIced.setTextColor(getColor(R.color.white))
+            else
+                binding.rbIced.setTextColor(getColor(R.color.black))
+        }
 
         val menu_id = intent.getLongExtra("menu_id", -1)
         Log.d("qwerty1234", menu_id.toString())

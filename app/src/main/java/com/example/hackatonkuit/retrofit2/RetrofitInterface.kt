@@ -28,6 +28,11 @@ interface RetrofitInterface {
         @Query("menu-status") menustatus: String
     ): Call<List<NewMenu>>
 
+    @GET("/orderItems")
+    fun requestCarts(
+        @Query("memberId") memberId: Long
+    ): Call<List<CartItem>>
+
 
 
 //    fun requestFriendsData(): Call<FriendsData>

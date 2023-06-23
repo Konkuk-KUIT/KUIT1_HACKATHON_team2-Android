@@ -64,8 +64,7 @@
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_menu_detail_best"
@@ -122,20 +121,24 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_price">
 
                     <RadioButton
+                        android:id="@+id/rb_hot"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
                         android:background="@drawable/selector_switch_hot"
                         android:button="@null"
                         android:gravity="center"
-                        android:text="HOT" />
+                        android:text="HOT"
+                        android:textStyle="bold" />
 
                     <RadioButton
+                        android:id="@+id/rb_iced"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
                         android:background="@drawable/selector_switch_iced"
                         android:button="@null"
                         android:gravity="center"
-                        android:text="ICED" />
+                        android:text="ICED"
+                        android:textStyle="bold" />
                 </RadioGroup>
 
                 <View
