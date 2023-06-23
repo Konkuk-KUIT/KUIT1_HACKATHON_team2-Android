@@ -15,6 +15,9 @@
         android:theme="@style/Theme.HackatonKUIT"
         tools:targetApi="31">
         <activity
+            android:name=".ui.menudetail.MenuDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".CartActivity"
             android:exported="false" />
         <activity
