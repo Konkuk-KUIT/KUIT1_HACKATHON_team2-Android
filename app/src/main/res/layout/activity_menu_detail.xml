@@ -44,7 +44,8 @@
                 android:elevation="-1dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/menu_detail_background"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_menu_detail_content"
@@ -67,6 +68,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_menu_detail_best"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -86,7 +88,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_name" />
 
                 <TextView
-                    android:id="@+id/iv_menu_detail_content"
+                    android:id="@+id/tv_menu_detail_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -108,7 +110,7 @@
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_menu_detail_content" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_content" />
 
                 <RadioGroup
                     android:id="@+id/rg_menu_detail"

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hackatonkuit.databinding.ItemAllmenuCvBinding
 import org.intellij.lang.annotations.JdkConstants.TitledBorderTitlePosition
 
-class AllmenuAdapter(private val items: ArrayList<AllmenuInfo>) : RecyclerView.Adapter<AllmenuAdapter.ViewHolder>() {
+class AllmenuAdapter(var items: ArrayList<AllmenuInfo>) : RecyclerView.Adapter<AllmenuAdapter.ViewHolder>() {
 
     var onItemClickListener: OnItemClickListener? = null
     interface OnItemClickListener {
