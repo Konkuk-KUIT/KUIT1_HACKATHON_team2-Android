@@ -22,6 +22,19 @@ fun getRetrofitInterface(): RetrofitInterface {
     return retrofit.create(RetrofitInterface::class.java)
 }
 
+fun getRetrofitInterface2(): RetrofitInterface{
+    val gson: Gson = GsonBuilder()
+        .setLenient()
+        .create()
+    var retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .client(retrofitOkHttpClient())
+        .build()
+
+    return retrofit.create(RetrofitInterface::class.java)
+}
+
 fun retrofitOkHttpClient(): OkHttpClient {
     val builder = OkHttpClient.Builder()
     val logging = HttpLoggingInterceptor()

@@ -1,12 +1,20 @@
 package com.example.hackatonkuit.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hackatonkuit.databinding.FragmentHomeBinding
+import com.example.hackatonkuit.retrofit2.Category
+import com.example.hackatonkuit.retrofit2.NewMenu
+import com.example.hackatonkuit.retrofit2.getRetrofitInterface2
+import com.example.hackatonkuit.ui.order.AllmenuInfo
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
@@ -21,7 +29,7 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        initData()
+        //initData()
         initLayout()
 
         return binding.root
@@ -33,6 +41,30 @@ class HomeFragment : Fragment() {
     }
 
     fun initLayout(){
+        val retrofitInterface = getRetrofitInterface2()
+
+        retrofitInterface.requestCategories().enqueue(object :
+            Callback<NewMenu> {
+            override fun onResponse(
+                call: Call<NewMenu>,
+                response: Response<NewMenu>
+            ) {
+                Log.d("qwerty123", response.body().toString())
+                if (response.isSuccessful) {
+                    orderList.clear()
+                    response.body()!!.forEach {
+                        orderList.add(AllmenuInfo(it.id, it.image, it.name, it.eng_name))
+                    }
+                    binding.allmenuRv.adapter?.notifyDataSetChanged()
+                } else {
+
+                }
+            }
+
+            override fun onFailure(call: Call<NewMenu>, t: Throwable) {
+                Log.d("hello", t.message.toString())
+            }
+        })
         adapter = HomeAdapter(menuList)
         binding.homeNewMenuList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.homeNewMenuList.adapter = adapter
