@@ -29,7 +29,7 @@
         <ImageView
             android:id="@+id/search_iv"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="right"
             android:layout_margin="10dp"
             android:src="@drawable/baseline_search_24"
@@ -39,72 +39,30 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menu_tab_cl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_top_cl">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/menu_tb1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/tab_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/menu_vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/menu_tab_cl"
-        app:layout_constraintBottom_toTopOf="@id/menu_bottom_cl" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/menu_tab_cl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/menu_top_cl">
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/menu_tb1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabGravity="center"
-                app:tabMode="fixed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/menu_ll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/menu_tb1">
-
-                <TextView
-                    android:id="@+id/menu_tv2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:tabMode="fixed"
-                    android:text="음료"
-                    android:textSize="25sp"
-                    android:layout_marginLeft="50dp"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/menu_tv3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:tabMode="fixed"
-                    android:text="음식"
-                    android:textSize="25sp"
-                    android:layout_marginLeft="50dp"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintStart_toEndOf="@id/menu_tv2" />
-
-                <TextView
-                    android:id="@+id/menu_tv4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:tabMode="fixed"
-                    android:text="식품"
-                    android:textSize="25sp"
-                    android:layout_marginLeft="50dp"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintStart_toEndOf="@id/menu_tv3" />
-
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+        app:layout_constraintBottom_toTopOf="@id/menu_bottom_cl" >
+    </androidx.viewpager2.widget.ViewPager2>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu_bottom_cl"
@@ -112,12 +70,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_vp" >
+        app:layout_constraintTop_toBottomOf="@id/menu_vp"
+        android:background="@color/gray">
 
         <ImageView
             android:id="@+id/bag_iv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="right"
             android:layout_margin="10dp"
             android:src="@drawable/baseline_shopping_bag_24"
@@ -129,7 +88,7 @@
             android:id="@+id/place_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:text="구의중앙점"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:layout_marginLeft="30dp"
@@ -140,8 +99,8 @@
 
         <ImageView
             android:id="@+id/dropbox_iv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="10dp"
             android:src="@drawable/baseline_keyboard_arrow_down_24"
             app:layout_constraintStart_toEndOf="@id/place_tv"
