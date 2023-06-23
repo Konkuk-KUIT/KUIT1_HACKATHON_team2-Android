@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hackatonkuit.databinding.FragmentHomeBinding
 
-class MenuAdapter: RecyclerView.Adapter<MenuAdapter.MyViewHolder>() {
+class MenuAdapter(var items:): RecyclerView.Adapter<MenuAdapter.MyViewHolder>() {
 
     var datalist = mutableListOf<HomeFragment>()
 
