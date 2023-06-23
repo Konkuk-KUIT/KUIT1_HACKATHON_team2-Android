@@ -6,11 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.hackatonkuit.R
+import com.example.hackatonkuit.databinding.FragmentMyMenuBinding
+import com.example.hackatonkuit.databinding.FragmentOrderBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MyMenuFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MyMenuFragment : Fragment() {
+    lateinit var binding: FragmentMyMenuBinding
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentMyMenuBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
 }
