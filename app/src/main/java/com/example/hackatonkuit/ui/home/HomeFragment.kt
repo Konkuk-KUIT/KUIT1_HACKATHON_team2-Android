@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hackatonkuit.databinding.FragmentHomeBinding
-import com.example.hackatonkuit.retrofit2.Category
 import com.example.hackatonkuit.retrofit2.NewMenu
 import com.example.hackatonkuit.retrofit2.getRetrofitInterface2
-import com.example.hackatonkuit.ui.order.AllmenuInfo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,7 +18,7 @@ class HomeFragment : Fragment() {
 
     lateinit var binding : FragmentHomeBinding
     lateinit var adapter: HomeAdapter
-    lateinit var menuList: ArrayList<HomeInfo>()
+    lateinit var menuList: ArrayList<HomeInfo>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +36,7 @@ class HomeFragment : Fragment() {
     }*/
 
     fun initLayout(){
+
         val retrofitInterface2 = getRetrofitInterface2()
 
         retrofitInterface2.requestMenus("asd").enqueue(object :
@@ -49,7 +48,7 @@ class HomeFragment : Fragment() {
                 Log.d("123", response.body().toString())
                 if (response.isSuccessful) {
                     menuList.clear()
-                    response.body()?.let{newMenus ->
+                    response.body()?.let{ newMenus ->
                         for(it in newMenus){
                             menuList.add(HomeInfo(it.menuId, it.image, it.name))
                         }
