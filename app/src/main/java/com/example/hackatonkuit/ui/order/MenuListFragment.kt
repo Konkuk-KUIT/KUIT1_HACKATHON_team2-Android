@@ -2,6 +2,7 @@ package com.example.hackatonkuit.ui.order
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +40,10 @@ class MenuListFragment : Fragment() {
         binding.ivMenuListBack.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
+
+        val bundle = arguments
+        val category_id = bundle?.getInt("category_id")
+        Log.d("qwerty123", category_id.toString())
     }
 
     fun initData(){

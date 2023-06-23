@@ -57,8 +57,12 @@ class AllMenuFragment : Fragment() {
         adapter = AllmenuAdapter(orderList)
         adapter.onItemClickListener = object : AllmenuAdapter.OnItemClickListener {
             override fun onItemClicked(position: Int) {
+                val fragment = MenuListFragment()
+                val bundle = Bundle()
+                bundle.putInt("category_id", adapter.items[position].id.toInt())
+                fragment.arguments = bundle
                 requireActivity().supportFragmentManager.beginTransaction().addToBackStack(null)
-                    .replace(R.id.main_frm, MenuListFragment()).commit()
+                    .replace(R.id.main_frm, fragment).commit()
             }
         }
         binding.allmenuRv.layoutManager =
