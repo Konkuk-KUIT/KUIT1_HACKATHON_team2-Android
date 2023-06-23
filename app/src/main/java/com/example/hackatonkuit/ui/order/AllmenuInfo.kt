@@ -1,6 +1,8 @@
 package com.example.hackatonkuit.ui.order
 
-class AllmenuInfo (
-    val korname: String,
-    val engname: String
+class AllmenuInfo(
+    val id: Long,
+    val image: String,
+    val name: String,
+    val eng_name: String
 )

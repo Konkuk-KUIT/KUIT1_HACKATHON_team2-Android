@@ -25,5 +25,8 @@ class CartActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tbCart, binding.vpCart){tab, position ->
             tab.text = tabList[position]
         }.attach()
+        binding.ivCartBack.setOnClickListener {
+            finish()
+        }
     }
 }

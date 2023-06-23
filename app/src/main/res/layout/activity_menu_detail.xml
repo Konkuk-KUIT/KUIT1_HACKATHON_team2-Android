@@ -6,153 +6,205 @@
     android:layout_height="match_parent"
     tools:context=".ui.menudetail.MenuDetailActivity">
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/baseline_arrow_back_ios_new_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
-
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/baseline_ios_share_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
-
-    <ImageView
-        android:id="@+id/iv_menu_detail_background"
+    <ScrollView
+        android:id="@+id/sv_menu_detail"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:elevation="-1dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/menu_detail_background"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/cl_menu_detail_bottom_bar"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tv_menu_detail_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="아이스 자몽 허니 블랙 티"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_menu_detail_background"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_menu_detail_scroll_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        />
+            <ImageView
+                android:id="@+id/iv_menu_detail_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/baseline_arrow_back_ios_new_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Best"
-        android:textColor="@color/red"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@id/tv_menu_detail_name"
-        app:layout_constraintTop_toTopOf="@id/tv_menu_detail_name" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/baseline_ios_share_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
 
-    <TextView
-        android:id="@+id/tv_menu_detail_eng_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Iced Grapefruit Honey Black Tea"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_name" />
+            <ImageView
+                android:id="@+id/iv_menu_detail_background"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:elevation="-1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/menu_detail_background"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/iv_menu_detail_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:text="새콤한 자몽과 달콤한 꿀이 깊고 그윽한 풍미의 스타벅스 티바나 블랙티의 조화"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_eng_name" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_menu_detail_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/iv_menu_detail_background">
+
+                <TextView
+                    android:id="@+id/tv_menu_detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="아이스 자몽 허니 블랙 티"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Best"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_menu_detail_name"
+                    app:layout_constraintTop_toTopOf="@id/tv_menu_detail_name" />
+
+                <TextView
+                    android:id="@+id/tv_menu_detail_eng_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Iced Grapefruit Honey Black Tea"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_name" />
+
+                <TextView
+                    android:id="@+id/iv_menu_detail_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="새콤한 자몽과 달콤한 꿀이 깊고 그윽한 풍미의 스타벅스 티바나 블랙티의 조화"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_eng_name" />
 
 
-    <TextView
-        android:id="@+id/tv_menu_detail_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="5,700원"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_menu_detail_content" />
+                <TextView
+                    android:id="@+id/tv_menu_detail_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="5,700원"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_menu_detail_content" />
 
-    <RadioGroup
-        android:id="@+id/rg_menu_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_price">
+                <RadioGroup
+                    android:id="@+id/rg_menu_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_price">
 
-        <RadioButton
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:background="@drawable/selector_switch_hot"
-            android:button="@null"
-            android:gravity="center"
-            android:text="HOT" />
+                    <RadioButton
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/selector_switch_hot"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="HOT" />
 
-        <RadioButton
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:background="@drawable/selector_switch_iced"
-            android:button="@null"
-            android:gravity="center"
-            android:text="ICED" />
-    </RadioGroup>
+                    <RadioButton
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/selector_switch_iced"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="ICED" />
+                </RadioGroup>
 
-    <View
-        android:id="@+id/v_menu_detail_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/divider_gray"
-        app:layout_constraintTop_toBottomOf="@id/rg_menu_detail" />
+                <View
+                    android:id="@+id/v_menu_detail_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/divider_gray"
+                    app:layout_constraintTop_toBottomOf="@id/rg_menu_detail" />
 
-    <TextView
-        android:id="@+id/tv_menu_detail_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="제품 영양 정보"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/iv_menu_detail_info"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/iv_menu_detail_info" />
+                <TextView
+                    android:id="@+id/tv_menu_detail_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="제품 영양 정보"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_menu_detail_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/iv_menu_detail_info" />
 
-    <ImageView
-        android:id="@+id/iv_menu_detail_info"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/baseline_arrow_forward_ios_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/v_menu_detail_divider" />
+                <ImageView
+                    android:id="@+id/iv_menu_detail_info"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/baseline_arrow_forward_ios_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/v_menu_detail_divider" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/divider_gray"
+                    app:layout_constraintTop_toBottomOf="@id/iv_menu_detail_info">
+
+                    <TextView
+                        android:id="@+id/tv_menu_detail_other_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:text="비슷한 다른 메뉴"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_menu_detail_other_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_menu_detail_other_menu" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_menu_detail_bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:paddingVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -175,5 +227,4 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

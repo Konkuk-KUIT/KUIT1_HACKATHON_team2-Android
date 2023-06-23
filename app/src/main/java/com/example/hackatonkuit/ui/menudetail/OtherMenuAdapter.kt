@@ -1,19 +1,21 @@
-package com.example.hackatonkuit.ui.order
+package com.example.hackatonkuit.ui.menudetail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hackatonkuit.databinding.ItemMenulistBinding
+import com.example.hackatonkuit.databinding.ItemHomeBinding
+import com.example.hackatonkuit.ui.home.Home
+import com.example.hackatonkuit.ui.order.Menu
 
-class MenuListAdapter(var items: ArrayList<Menu>) : RecyclerView.Adapter<MenuListAdapter.ViewHolder>(){
+class OtherMenuAdapter(var items: ArrayList<Home>) : RecyclerView.Adapter<OtherMenuAdapter.ViewHolder>(){
 
     var onItemClickedListener : OnItemClickedListener? = null
     interface OnItemClickedListener {
         fun onItemClicked(position: Int)
     }
-    inner class ViewHolder(val binding : ItemMenulistBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(val binding : ItemHomeBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
-            binding.tvMenuName.text = items[position].name
+            binding.homeNewMenuName.text = items[position].name
             binding.root.setOnClickListener {
                 onItemClickedListener?.onItemClicked(position)
             }
@@ -21,7 +23,7 @@ class MenuListAdapter(var items: ArrayList<Menu>) : RecyclerView.Adapter<MenuLis
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemMenulistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
