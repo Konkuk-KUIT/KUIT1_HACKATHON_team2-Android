@@ -22,6 +22,7 @@ fun getRetrofitInterface(): RetrofitInterface {
     return retrofit.create(RetrofitInterface::class.java)
 }
 
+
 fun retrofitOkHttpClient(): OkHttpClient {
     val builder = OkHttpClient.Builder()
     val logging = HttpLoggingInterceptor()

@@ -28,3 +28,9 @@ data class Menu(
     @SerializedName("price") val price: Int,
     @SerializedName("menuStatus") val menuStatus: String
 )
+
+data class NewMenu(
+    @SerializedName("menuId") val menuId: Long,
+    @SerializedName("image") val image: String,
+    @SerializedName("name") val name: String
+)
