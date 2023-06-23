@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginVertical="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/order_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="아이스 자몽 허니 블랙 티"
+        android:textAlignment="center"
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/order_environment"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/protect_environment"
+        app:layout_constraintStart_toStartOf="@+id/order_name"
+        app:layout_constraintTop_toBottomOf="@+id/order_name"/>
+
+    <TextView
+        android:id="@+id/order_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사이즈"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/order_environment"
+        app:layout_constraintTop_toBottomOf="@id/order_environment"/>
+
+    <RadioGroup
+        android:id="@+id/order_size_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/order_size">
+
+        <RadioButton
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/selector_switch_size_tall"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Tall" />
+
+        <RadioButton
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/selector_switch_size_grande"
+            android:layout_marginStart="10dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Grande" />
+
+        <RadioButton
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/selector_switch_size_venti"
+            android:layout_marginStart="10dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Venti" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/order_cup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="컵 선택"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/order_size_detail"
+        app:layout_constraintTop_toBottomOf="@id/order_size_detail"/>
+
+    <RadioGroup
+        android:id="@+id/order_cup_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/order_cup">
+
+        <RadioButton
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_switch_cup_shop"
+            android:button="@null"
+            android:gravity="center"
+            android:text="매장컵" />
+
+        <RadioButton
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_switch_cup_own"
+            android:button="@null"
+            android:gravity="center"
+            android:text="개인컵" />
+
+        <RadioButton
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_switch_cup_once"
+            android:button="@null"
+            android:gravity="center"
+            android:text="일회용컵" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/order_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/order_cup_detail"
+        app:layout_constraintTop_toBottomOf="@id/order_cup_detail"/>
+
+    <TextView
+        android:id="@+id/order_personaloption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="퍼스널 옵션"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/order_line"
+        app:layout_constraintTop_toBottomOf="@id/order_line"/>
+
+    <ImageView
+        android:id="@+id/order_personal_arrow"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/order_line"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="주문하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
