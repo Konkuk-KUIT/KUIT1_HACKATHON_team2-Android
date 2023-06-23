@@ -13,13 +13,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hackatonkuit.R
 import com.example.hackatonkuit.databinding.FragmentHomeBinding
+import com.example.hackatonkuit.ui.order.Menu
+import com.example.hackatonkuit.ui.order.MenuListAdapter
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding : FragmentHomeBinding
-    private lateinit var menuAdapter: MenuAdapter
+    lateinit var binding : FragmentHomeBinding
+    lateinit var adapter: MenuAdapter
+    lateinit var menuList: ArrayList<MenuItem>
 
-    val items = mutableListOf<android.view.MenuItem>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,33 +29,37 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        menuAdapter = MenuAdapter()
+        //menuAdapter = MenuAdapter()
         //binding.homeRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         //binding.homeRecyclerView.adapter = menuAdapter
 
-        val menuItems = listOf(
-            MenuItem(R.drawable.americano, "아메리카노")
-        )
-        //menuAdapter.submitList(menuItems)
-
-        binding.homeNewaccountButton.setOnClickListener {
-            //회원가입 버튼 클릭 시
-        }
-
-        binding.homeLoginButton.setOnClickListener {
-            //로그인 버튼 클릭 시
-        }
+        initData()
+        initLayout()
         return binding.root
 
     }
 
+    fun initData(){
+        menuList = arrayListOf(Menu("아메리카노"), Menu("카페라떼"))
+    }
 
-    data class MenuItem(
+    fun initLayout(){
+        adapter = MenuAdapter(menuList)
+        binding.homeNewMenuList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.homeNewMenuList.adapter = adapter
+    }
+
+
+    /*data class MenuItem(
         val menuimage: Int,
         val menuname: String
-        )
+        )*/
 
-    class MenuAdapter : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>(){
+
+
+
+
+    /*class MenuAdapter : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>(){
         private var menuItems: List<MenuItem> = emptyList()
 
 
@@ -74,7 +80,7 @@ class HomeFragment : Fragment() {
                 textView.text = menuItem.menuname
             }
         }
-    }
+    }*/
 
 
 }
