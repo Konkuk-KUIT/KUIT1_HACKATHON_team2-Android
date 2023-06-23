@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.cart.OrderedFoodFragment">
+
+    <TextView
+        android:id="@+id/tv_cart_ordered_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="주문 메뉴"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cart_ordered_possibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="총 주문 가능 수량 20개"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cart_info"
+        app:layout_constraintEnd_toStartOf="@id/iv_cart_info"
+        app:layout_constraintTop_toTopOf="@id/iv_cart_info" />
+
+    <ImageView
+        android:id="@+id/iv_cart_info"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/baseline_info_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cb_cart_check_all"
+        android:layout_width="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:buttonTint="@color/main_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_cart_ordered_menu" />
+
+    <TextView
+        android:id="@+id/tv_cart_check_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전체 선택"
+        android:layout_marginStart="10dp"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/cb_cart_check_all"
+        app:layout_constraintStart_toEndOf="@id/cb_cart_check_all"
+        app:layout_constraintTop_toTopOf="@id/cb_cart_check_all" />
+
+    <TextView
+        android:id="@+id/tv_cart_delete_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="선택삭제"
+        android:textColor="@color/main_green"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_cart_delete_all"
+        app:layout_constraintEnd_toStartOf="@id/tv_cart_divider"
+        app:layout_constraintTop_toTopOf="@id/tv_cart_delete_all" />
+
+    <TextView
+        android:id="@+id/tv_cart_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="|"
+        app:layout_constraintBottom_toBottomOf="@id/tv_cart_delete_all"
+        app:layout_constraintEnd_toStartOf="@id/tv_cart_delete_all"
+        app:layout_constraintTop_toTopOf="@id/tv_cart_delete_all" />
+
+    <TextView
+        android:id="@+id/tv_cart_delete_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전체삭제"
+        android:layout_marginEnd="20dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_cart_check_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_cart_check_all" />
+
+    <View
+        android:id="@+id/v_cart_divider"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginVertical="15dp"
+        android:background="@color/divider_gray"
+        app:layout_constraintTop_toBottomOf="@id/cb_cart_check_all" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart_ordered_menu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_cart_divider"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
