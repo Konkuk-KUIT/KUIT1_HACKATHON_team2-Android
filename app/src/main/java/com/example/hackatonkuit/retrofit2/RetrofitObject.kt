@@ -1,5 +1,6 @@
 package com.example.hackatonkuit.retrofit2
 
+import com.example.hackatonkuit.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -7,7 +8,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-val BASE_URL = "https://dc57-210-106-232-36.ngrok-free.app/"
+val BASE_URL= BuildConfig.BASE_URL
 
 fun getRetrofitInterface(): RetrofitInterface {
     val gson: Gson = GsonBuilder()

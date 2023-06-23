@@ -119,6 +119,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
+            android:backgroundTint="@color/main_green"
+            android:textColor="@color/white"
             android:layout_marginBottom="20dp"
             android:text="주문하기"
             app:layout_constraintBottom_toBottomOf="parent"

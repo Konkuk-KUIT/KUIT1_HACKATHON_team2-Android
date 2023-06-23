@@ -26,6 +26,11 @@ class OrderFragment : Fragment() {
     }
 
     fun initLayout() {
+        binding.searchIv.setOnClickListener {
+            val i = Intent(requireContext(), SearchActivity::class.java)
+            startActivity(i)
+        }
+
         val adapter = OrderVPAdapter(this)
         binding.menuVp.adapter = adapter
         TabLayoutMediator(binding.menuTb1, binding.menuVp) {tab, position ->
