@@ -6,7 +6,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hackatonkuit.databinding.ActivityMainBinding
 import com.example.hackatonkuit.ui.home.HomeFragment
-import com.example.hackatonkuit.ui.order.MenuListFragment
 import com.example.hackatonkuit.ui.order.OrderFragment
 import com.example.hackatonkuit.ui.other.OtherFragment
 import com.example.hackatonkuit.ui.pay.PayFragment
