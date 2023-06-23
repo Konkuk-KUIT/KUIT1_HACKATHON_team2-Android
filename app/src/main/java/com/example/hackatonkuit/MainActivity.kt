@@ -1,15 +1,19 @@
 package com.example.hackatonkuit
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.util.Log
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.hackatonkuit.databinding.ActivityMainBinding
+import com.example.hackatonkuit.ui.home.HomeFragment
+import com.example.hackatonkuit.ui.order.MenuListFragment
+import com.example.hackatonkuit.ui.order.OrderFragment
+import com.example.hackatonkuit.ui.other.OtherFragment
+import com.example.hackatonkuit.ui.pay.PayFragment
+import com.example.hackatonkuit.ui.shop.ShopFragment
+import com.google.android.material.navigation.NavigationBarView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -17,5 +21,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.navView.setOnItemSelectedListener {
+            onNavigationItemSelected(it)
+        }
+        binding.navView.selectedItemId = R.id.navigation_home
     }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        Log.d("qwerty123", item.toString())
+        when(item.itemId){
+            R.id.navigation_home -> {
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commit()
+            }
+            R.id.navigation_pay -> {
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, PayFragment()).commit()
+            }
+            R.id.navigation_order -> {
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, OrderFragment()).commit()
+            }
+            R.id.navigation_shop -> {
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, ShopFragment()).commit()
+            }
+            R.id.navigation_other -> {
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, OtherFragment()).commit()
+            }
+        }
+        return true
+    }
+
 }
