@@ -1,17 +1,26 @@
 package com.example.hackatonkuit.ui.order
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hackatonkuit.R
 import com.example.hackatonkuit.databinding.FragmentAllMenuBinding
+import com.example.hackatonkuit.retrofit2.Category
+import com.example.hackatonkuit.retrofit2.getRetrofitInterface
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AllMenuFragment : Fragment() {
     lateinit var binding: FragmentAllMenuBinding
     lateinit var adapter: AllmenuAdapter
-    lateinit var orderlist: ArrayList<AllmenuInfo>
+    var orderList = ArrayList<AllmenuInfo>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,46 +28,38 @@ class AllMenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAllMenuBinding.inflate(inflater, container, false)
-        initData()
         initLayout()
         return binding.root
     }
 
     fun initLayout() {
-        adapter = AllmenuAdapter(orderlist)
+        val retrofitInterface = getRetrofitInterface()
+        retrofitInterface.requestCategories().enqueue(object :
+            Callback<List<Category>> {
+            override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
+                Log.d("qwerty123", response.body().toString())
+                if (response.isSuccessful) {
+                    response.body()!!.forEach {
+                        orderList.add(AllmenuInfo(it.image, it.name, it.eng_name))
+                    }
+                    binding.allmenuRv.adapter?.notifyDataSetChanged()
+                } else {
+
+                }
+            }
+            override fun onFailure(call: Call<List<Category>>, t: Throwable) {
+                Log.d("hello", t.message.toString())
+            }
+        })
+        adapter = AllmenuAdapter(orderList)
+//        adapter.onItemClickListener = object: AllmenuAdapter.OnItemClickListener{
+//            override fun onItemClicked(position: Int) {
+//                parentFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.main_frm, MenuListFragment()).commit()
+//            }
+//        }
         binding.allmenuRv.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.allmenuRv.adapter = adapter
-
-    }
-
-    fun initData() {
-        orderlist = arrayListOf(
-            AllmenuInfo(
-                "NEW",
-                ""
-            ),
-            AllmenuInfo(
-                "추천",
-                "Recommend"
-            ),
-            AllmenuInfo(
-                "콜드 브루",
-                "Cold Brew"
-            ),
-            AllmenuInfo(
-                "블론드",
-                "Blonde Coffee"
-            ),
-            AllmenuInfo(
-                "에스프레소",
-                "Espresso"
-            ),
-            AllmenuInfo(
-                "프라푸치노",
-                "Frappuccino"
-            ),
-        )
 
     }
 
