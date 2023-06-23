@@ -65,6 +65,11 @@ class MenuDetailActivity : AppCompatActivity() {
                 binding.rbIced.setTextColor(getColor(R.color.black))
         }
 
+        binding.bMenuDetailOrder.setOnClickListener {
+            val myBottomSheet = MyBottomSheet()
+            myBottomSheet.show(supportFragmentManager, myBottomSheet.tag)
+        }
+
         val menu_id = intent.getLongExtra("menu_id", -1)
         Log.d("qwerty1234", menu_id.toString())
 
