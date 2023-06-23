@@ -1,22 +1,21 @@
 package com.example.hackatonkuit.ui.home
 
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hackatonkuit.databinding.FragmentHomeBinding
+import com.example.hackatonkuit.databinding.ItemHomeBinding
 
-class MenuAdapter(var items: ArrayList<MenuItem>): RecyclerView.Adapter<MenuAdapter.MyViewHolder>() {
+class HomeAdapter(var items: ArrayList<Home>): RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
 
-    inner class MyViewHolder(val binding: FragmentHomeBinding):RecyclerView.ViewHolder(binding.root){
+    inner class MyViewHolder(val binding: ItemHomeBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
-            binding.homeNewName.text = items[position].
+            binding.homeNewMenuName.text = items[position].name
             //binding.homeNewImage.id = HomeFragment.MenuItem.menuimage
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = FragmentHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
