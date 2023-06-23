@@ -17,7 +17,17 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        binding.homeNewaccountButton.setOnClickListener {
+            //회원가입 버튼 클릭 시
+        }
+
+        binding.homeLoginButton.setOnClickListener {
+            //로그인 버튼 클릭 시
+        }
         return binding.root
+
     }
+
 
 }
