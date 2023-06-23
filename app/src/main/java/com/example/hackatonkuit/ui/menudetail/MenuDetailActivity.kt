@@ -1,8 +1,7 @@
 package com.example.hackatonkuit.ui.menudetail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.hackatonkuit.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.hackatonkuit.databinding.ActivityMenuDetailBinding
 
 class MenuDetailActivity : AppCompatActivity() {
@@ -11,5 +10,6 @@ class MenuDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }

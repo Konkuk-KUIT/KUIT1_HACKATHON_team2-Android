@@ -16,6 +16,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:id="@+id/order_environment"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/protect_environment"
+        app:layout_constraintStart_toStartOf="@+id/order_name"
+        app:layout_constraintTop_toBottomOf="@+id/order_name"/>
+
     <TextView
         android:id="@+id/order_size"
         android:layout_width="match_parent"
@@ -23,10 +32,10 @@
         android:text="사이즈"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
-        app:layout_constraintStart_toEndOf="@id/order_name"
-        app:layout_constraintTop_toBottomOf="@id/order_name"/>
+        app:layout_constraintStart_toEndOf="@id/order_environment"
+        app:layout_constraintTop_toBottomOf="@id/order_environment"/>
 
     <RadioGroup
         android:id="@+id/order_size_detail"
@@ -88,27 +97,25 @@
         app:layout_constraintTop_toBottomOf="@id/order_cup">
 
         <RadioButton
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:background="@drawable/selector_switch_size_tall"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_switch_cup_shop"
             android:button="@null"
             android:gravity="center"
             android:text="매장컵" />
 
         <RadioButton
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:background="@drawable/selector_switch_size_grande"
-            android:layout_marginStart="10dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_switch_cup_own"
             android:button="@null"
             android:gravity="center"
             android:text="개인컵" />
 
         <RadioButton
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:background="@drawable/selector_switch_size_venti"
-            android:layout_marginStart="10dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector_switch_cup_once"
             android:button="@null"
             android:gravity="center"
             android:text="일회용컵" />
