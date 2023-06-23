@@ -10,9 +10,9 @@ class AllmenuAdapter(private val items: ArrayList<AllmenuInfo>) : RecyclerView.A
 
     inner class ViewHolder(val binding: ItemAllmenuCvBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: AllmenuInfo) {
-            binding.coffeekorTv.text = item.korname
-            binding.coffeeengTv.text = item.engname
+        fun bind(position: Int) {
+            binding.coffeekorTv.text = items[position].korname
+            binding.coffeeengTv.text = items[position].engname
         }
     }
 
@@ -22,10 +22,12 @@ class AllmenuAdapter(private val items: ArrayList<AllmenuInfo>) : RecyclerView.A
         return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int {
+        return items.size
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(position)
     }
 
 

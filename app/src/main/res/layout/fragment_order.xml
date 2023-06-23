@@ -39,42 +39,72 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/menu_tab_cl"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/menu_vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/menu_bottom_cl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_top_cl">
+        app:layout_constraintTop_toBottomOf="@id/menu_tab_cl"
+        app:layout_constraintBottom_toTopOf="@id/menu_bottom_cl" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/menu_tb1"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_tab_cl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="center"
-            app:tabMode="fixed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/menu_top_cl">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/menu_tb2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabGravity="center"
-            app:tabMode="fixed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/menu_tb1" />
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/menu_tb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabGravity="center"
+                app:tabMode="fixed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/menu_vp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/menu_tb2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/menu_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/menu_tb1">
+
+                <TextView
+                    android:id="@+id/menu_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabMode="fixed"
+                    android:text="음료"
+                    android:textSize="25sp"
+                    android:layout_marginLeft="50dp"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/menu_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabMode="fixed"
+                    android:text="음식"
+                    android:textSize="25sp"
+                    android:layout_marginLeft="50dp"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintStart_toEndOf="@id/menu_tv2" />
+
+                <TextView
+                    android:id="@+id/menu_tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabMode="fixed"
+                    android:text="식품"
+                    android:textSize="25sp"
+                    android:layout_marginLeft="50dp"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintStart_toEndOf="@id/menu_tv3" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu_bottom_cl"
@@ -82,7 +112,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_tab_cl" >
+        app:layout_constraintTop_toBottomOf="@id/menu_vp" >
 
         <ImageView
             android:id="@+id/bag_iv"
