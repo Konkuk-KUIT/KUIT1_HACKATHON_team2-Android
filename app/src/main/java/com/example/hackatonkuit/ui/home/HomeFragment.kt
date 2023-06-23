@@ -2,18 +2,17 @@ package com.example.hackatonkuit.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuAdapter
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hackatonkuit.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     lateinit var binding : FragmentHomeBinding
-    lateinit var adapter: MenuAdapter
-    lateinit var menuList: ArrayList<MenuItem>
+    lateinit var adapter: HomeAdapter
+    lateinit var menuList: ArrayList<Home>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,32 +21,22 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        //menuAdapter = MenuAdapter()
-        //binding.homeRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        //binding.homeRecyclerView.adapter = menuAdapter
-
         initData()
         initLayout()
+
         return binding.root
 
     }
 
     fun initData(){
-        //menuList = arrayListOf(MenuItem("아메리카노"), MenuItem("카페라떼"))
+        menuList = arrayListOf(Home("아메리카노"), Home("카페라떼"), Home("아이스티"), Home("바닐라라떼"))
     }
 
     fun initLayout(){
-        //adapter = MenuAdapter(menuList)
-        //binding.homeNewMenuList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        //binding.homeNewMenuList.adapter = adapter
+        adapter = HomeAdapter(menuList)
+        binding.homeNewMenuList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.homeNewMenuList.adapter = adapter
     }
-
-
-    /*data class MenuItem(
-        val menuimage: Int,
-        val menuname: String
-        )*/
-
 
 
 
