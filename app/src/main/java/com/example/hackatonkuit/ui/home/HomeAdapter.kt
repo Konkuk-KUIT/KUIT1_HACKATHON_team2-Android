@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hackatonkuit.databinding.ItemHomeBinding
 
-class HomeAdapter(var items: ArrayList<Home>): RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
+class HomeAdapter(var items: ArrayList<HomeInfo>): RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: ItemHomeBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
