@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cl_cart_top_bar"
-        app:tabGravity="center"
+        app:tabGravity="fill"
         app:tabMode="fixed" />
 
     <androidx.viewpager2.widget.ViewPager2

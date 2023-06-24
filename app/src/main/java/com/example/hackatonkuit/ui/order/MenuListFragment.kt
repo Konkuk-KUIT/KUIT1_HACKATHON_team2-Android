@@ -46,6 +46,11 @@ class MenuListFragment : Fragment() {
             parentFragmentManager.popBackStack()
         }
 
+        binding.ivMenuListSearch.setOnClickListener {
+            val i = Intent(requireContext(), SearchActivity::class.java)
+            startActivity(i)
+        }
+
         val bundle = arguments
         val category_id = bundle?.getInt("category_id")
 
