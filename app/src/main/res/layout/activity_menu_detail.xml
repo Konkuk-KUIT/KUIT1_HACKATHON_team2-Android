@@ -228,6 +228,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
             android:text="주문하기"
             android:backgroundTint="@color/main_green"
             android:textColor="@color/white"
